@@ -20,13 +20,22 @@ var firebaseConfig = {
     // Get all our input fields
     email = document.getElementById('email').value
     password = document.getElementById('password').value  
+    user_name=document.getElementById('name').value
+    father_name=document.getElementById('father_name').value
+    age=document.getElementById('age').value
+    insta_id=document.getElementById('insta_id').value
+
     // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false) {
       alert('Email or Password is Outta Line!!')
       return
       // Don't continue running the code
     }
-   
+
+    if (validate_field(user_name) == false || validate_field(father_name) == false || validate_field(age) == false) {
+      alert('One or More Extra Fields is Outta Line!!')
+      return
+    }
     // Move on with Auth
     auth.createUserWithEmailAndPassword(email, password)
     .then(function() {
@@ -39,7 +48,12 @@ var firebaseConfig = {
       // Create User data
       var user_data = {
         email : email,
-        last_login : Date.now()
+        password : password,
+        user_name: user_name,
+        father_name: father_name,
+        age: age,
+        instagram_id: insta_id,
+        amount: "₹0"
       }
   
       // Push to Firebase Database
@@ -47,6 +61,7 @@ var firebaseConfig = {
   
       // DOne
       alert('User Created!!')
+      addRoom()
     })
     .catch(function(error) {
       // Firebase will use this to alert of its errors
@@ -88,6 +103,7 @@ var firebaseConfig = {
   
       // DOne
       alert('User Logged In!!')
+      addRoom()
   
     })
     .catch(function(error) {

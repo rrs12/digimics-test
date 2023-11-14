@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit the proof</title>
+<script src="https://cdn.tailwindcss.com"></script></head>
+<body class="dark flex flex-col items-center justify-center mx-auto h-screen bg-gray-900">
+   <div class="px-6 py-8 text-base sm:text-lg md:text-2xl text-white font-semibold bg-white rounded-lg shadow dark:border md:mt-0  dark:bg-gray-800 dark:border-gray-700"><input type="file" name="" id="fileInp" class="inputFile" onchange="getFile(event)" accept="image/png, image/jpg">
+    <br>
+    <span class="fileText"></span>
+    <br>
+    <button onclick="uploadImage()">Upload Image</button>
+    <br><br>
+    <div class="bar">
+        <div class="progress"></div>
+    </div>
+    <div class="uploadPercentage">0%</div></div> 
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script src="image.js"></script>
+</body>
+</html>
